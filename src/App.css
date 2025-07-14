@@ -1,6 +1,6 @@
 .App {
 width: 1350%;
-  max-width: 1500px;
+  max-width: 1000px;
   margin: 40px auto;
   padding: 24px;
   background: #fff;
@@ -28,7 +28,7 @@ a:hover {
 
 
 .header-section {
-  background: #222c36;
+  background: #8d97a0;
   padding: 32px 0 24px 0;
   text-align: center;
   border-radius: 16px 16px 0 0;
@@ -104,4 +104,48 @@ a:hover {
   text-align: center;
   border-radius: 0 0 16px 16px;
   font-size: 1.05rem;
+}
+
+.profile-card {
+ 
+   max-width: 300px;
+  width: 300px;
+  background-color: blanchedalmond;
+  background: #f3f4f6;
+  color: #65b341;
+  padding: 24px;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(32, 22, 22, 0.1);
+  text-align: center;
+  align-items: center;
+}
+.app-container {
+   width: 400%;
+  margin: 40px auto;
+  padding: 20px;
+  background: #b38e8e;
+  border-radius: 6px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 50vh;
+}
+.profile-card h2{
+  margin-bottom: 12px;
+  font-size: 1.5rem;
+  color: #5d779f;
+}
+.profile-card li {
+  margin-bottom: 12px;
+  font-size: 1.1rem;
+  color: #a09638;
+  align-items: left;
+  display: list-item;
+  justify-items: left;
+}
+.profile-card h1{
+  margin-bottom: 16px;
+  font-size: 1.5rem;
+  color: #ca9367;
 }
