@@ -577,3 +577,103 @@ npm run dev
 # For Bash (Linux/macOS)
 NODE_ENV=development npm run dev
 ```
+
+# Hooks
+
+✅ Data that changes over time → called state
+✅ To do something when it loads, updates, or unmounts → that’s the lifecycle
+
+#A Hook is a special function that lets you use React features like state, lifecycle, refs, etc. inside a function component.
+Hooks are functions like useState() or useEffect().
+You call them inside a functional component, and they “inject” React powers into your component (like state, side effects, etc.).
+
+Before hooks:
+You had to write class components to use features like state, componentDidMount, etc.
+
+With hooks:
+->Hooks = Functions to use React features (like state, lifecycle, etc.) in function components
+->They start with the word use: like useState, useEffect, etc.
+->You only use hooks inside components or custom hooks.
+
+## const [count, setCount] = useState(0);
+
+| Part                                                              | Meaning                                                                       |
+| ----------------------------------------------------------------- | ----------------------------------------------------------------------------- |
+| `count`                                                           | Your **state variable** (initially `0`) count is a variable that stores data, |
+| It can hold any type of data: number, string, array, object, etc. |
+| `setCount`                                                        | A **function** that updates `count` and **triggers re-render**                |
+| `useState(0)`                                                     | React sets up state with an initial value of `0`                              |
+
+#### ✅ count is a state variable → it stores data that the UI depends on.
+
+🔁 Whenever the data (value of count) changes via setCount(...), React re-renders the component to reflect the new data on screen.
+
+🧠 Flow of how it works:
+When the component first renders:
+count is set to 0.
+React remembers this value for this component instance.
+When you call setCount(newValue):
+React updates the value of count.
+React re-renders the component.
+The updated count value shows in the UI.
+function Counter() {
+const [count, setCount] = useState(0);
+function handleClick() {
+setCount(count + 1); // updates the state
+}
+return <button onClick={handleClick}>Clicked {count} times</button>;
+}
+-> handleClick() is triggered | setCount(count + 1) increases the count | React re-renders → button shows updated count
+
+########-------------------------------------------------------
+| Concept | Example | Type |
+| ---------------- | ------------------------------------------------------------ | ------------------------------------------- |
+| Object destruct. | `const {name, age} = props` | Object destructuring |
+| Array destruct. | `const [count, setCount] = useState(0)` | Array destructuring |
+| Spread operator | `const newObj = {...oldObj}` | Not destructuring — it **copies** an object |
+| Re-render | When state/props change, component runs again and UI updates | React behavior |
+
+=> Each time state or props change, React automatically re-renders (i.e., re-executes) the function component to refresh the UI.
+=> declare hooke outside of return statement
+
+#State updates are asynchronous (delayed) is  - React doesn't update the state immediately. It waits, then updates after
+       the function finishes running.
+ E.g-
+   const [count, setCount] = useState(0);
+function increase() {
+  setCount(count + 1);
+  console.log("After update:", count); // Still shows old value!
+   }
+   return (
+   <div>
+      <p>{count}</p>       {/* UI shows updated count */}
+      <button onClick={increase}>Increase</button>
+   </div>
+);
+                  ||
+=> ⏱ What Happens Step by Step
+   Button clicked → increase() runs
+   Inside increase():
+   setCount(count + 1) is called
+   React schedules the UI to re-render with new count
+   But increase() is still running with the old count
+   So console.log(count) logs the old value
+   Then after increase() finishes, React re-renders the component
+   Now count is updated in the new render
+   So UI shows updated count, even though the old log is printed
+
+#To resolve this use Update function(a simple function) : when you need the latest state, use it for updating multiple state :
+   e.g -> setCount(prev => prev + 1);
+
+# 🧩 What is batching? : React groups multiple state updates together to make the UI faster.
+   Instead of re-rendering on every line: setA(...); | setB(...);
+   It waits till both are done, then re-renders once.
+   This is called batching – updating state in a batch to improve performance.
+
+# setForm({
+  ...formData,
+  [name]: value
+});
+
+#It means:
+Take all the current values from formData (...formData) | Replace (or add) the property with the key of name with the new value | This becomes the new state
