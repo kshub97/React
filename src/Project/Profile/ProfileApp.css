@@ -1,0 +1,58 @@
+/*  Profile Card Start */
+.profile-card {
+ 
+   max-width: 300px;
+  width: 300px;
+  background-color: blanchedalmond;
+  background: #f3f4f6;
+  color: #65b341;
+  padding: 24px;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(32, 22, 22, 0.1);
+  text-align: center;
+  align-items: center;
+}
+.app-container {
+   width: 200%;
+  margin: 20px auto;
+  padding: 80px;
+  background: #b38e8e;
+  background-color: #889781;
+  border-radius: 10px;
+  column-rule-color: #2563eb;
+  color: #1a1714;
+  display: -ms-flexbox;
+  flex-direction:row;
+  align-items: last end;
+  justify-content: center;
+  min-height: 100vh;
+}
+.profile-card h2{
+  margin-bottom: 12px;
+  font-size: 1.5rem;
+  color: #5d779f;
+}
+.profile-card li {
+  margin-bottom: 12px;
+  font-size: 1.1rem;
+  color: #a09638;
+  align-items: left;
+  display: list-item;
+  justify-items: left;
+}
+.profile-card h1{
+  margin-bottom: 16px;
+  font-size: 1.5rem;
+  color: #ca9367;
+}
+button {
+  background-color: #2563eb;
+  margin: 4px;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.2s, transform 0.2s;
+}
+/*  Profile Card End */

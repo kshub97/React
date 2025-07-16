@@ -1,6 +1,6 @@
 
 import React, { useState } from 'react';
-import './App.css'
+import './DynamicCounter.css'
 
 function App(){
   //we can Store array ,complex data structure in state , object

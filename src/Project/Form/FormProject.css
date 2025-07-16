@@ -1,0 +1,91 @@
+/*  Form Input With State Start */
+  body {
+  font-family: Arial, sans-serif;
+  background: #f6f8fa;
+  margin: 5% auto;
+  padding: 0;
+  align-items: center;
+  align-content: center;
+  color: #344f7b;
+}
+
+.form-group {
+ background-color: #f3f4f6;
+  width: 100%;
+  max-width: 600px;
+  margin: 50px auto; /* auto horizontally centers it */
+  padding: 32px;
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+  box-sizing: border-box;
+  align-items: center;
+  align-content: center;
+}
+
+h1 {
+  text-align: center;
+  color: #22223b;
+  margin-bottom: 24px;
+}
+
+.form-field {
+  margin-bottom: 18px;
+}
+
+label {
+  font-weight: 500;
+  color: #4a4e69;
+  margin-right: 8px;
+}
+
+input[type="text"] {
+  padding: 7px 10px;
+  border: 1px solid #bfc0c0;
+  border-radius: 5px;
+  font-size: 1rem;
+  width: 100%;
+  margin-top: 4px;
+  margin-bottom: 8px;
+  box-sizing: border-box;
+}
+
+input[type="checkbox"],
+input[type="radio"] {
+  margin-right: 6px;
+  accent-color: #5f6caf;
+}
+
+select {
+  padding: 7px 10px;
+  border: 1px solid #bfc0c0;
+  border-radius: 5px;
+  font-size: 1rem;
+  margin-top: 4px;
+  margin-bottom: 8px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.form-data {
+  background: #f0f4f8;
+  border-radius: 8px;
+  padding: 16px;
+  margin-top: 24px;
+}
+
+.form-data h2 {
+  margin-top: 0;
+  color: #22223b;
+  font-size: 1.1rem;
+}
+
+.form-data p {
+  margin: 8px 0;
+  color: #22223b;
+}
+.form-data p span {
+  font-weight: 600;
+  color: #4a4e69;
+}
+
+/*  Form Input With State End */

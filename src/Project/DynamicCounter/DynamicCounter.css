@@ -1,0 +1,36 @@
+/*  Dynamic Counter Start */
+
+.app-container button:hover {
+  background-color: #621eaf;
+  transform: translateY(-2px);
+}
+.app-container button:active {
+  background-color: #1e3a8a;
+  transform: translateY(0);
+}
+.app-container input {
+  width: 10%;
+  text-spacing-trim: space-all;
+  padding: 10px 20px;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  margin-bottom: 16px;
+  font-size: 1rem;
+}
+
+.delete-btn  {
+  background-color: #946a6a;
+  color: #03161c;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.2s, transform 0.2s;
+}
+
+ul li {
+  margin-bottom: 10px;
+  list-style: none;
+}
+
+/*  Dynamic Counter End */

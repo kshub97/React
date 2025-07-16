@@ -638,7 +638,7 @@ return <button onClick={handleClick}>Clicked {count} times</button>;
 
 #State updates are asynchronous (delayed) is  - React doesn't update the state immediately. It waits, then updates after
        the function finishes running.
- E.g-
+ E.g-   count - state variable which holds value , setCount -state updater function, call this functionto update
    const [count, setCount] = useState(0);
 function increase() {
   setCount(count + 1);
@@ -677,3 +677,35 @@ function increase() {
 
 #It means:
 Take all the current values from formData (...formData) | Replace (or add) the property with the key of name with the new value | This becomes the new state
+
+# 💡 Thinking Tip:
+Whenever you deal with form inputs like:
+<input type="text"> |<input type="color"> | <select>
+
+   use : onChange={(e) => {
+  console.log(e.target.value); // always useful
+}}
+
+---------------------CSS-------------
+ #Selectors:
+   /* Target by element */
+p { }
+
+/* Target by class */
+.container { }
+
+/* Target by ID */
+#main-title { }
+
+/* Descendant selector */
+.container p { }
+
+/* Multiple selectors */
+h1, h2, h3 { }
+
+/* Pseudo classes */
+a:hover { color: red; }
+li:first-child { font-weight: bold; }
+
+/* Pseudo elements */
+p::first-line { font-style: italic; }
