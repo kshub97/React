@@ -1,11 +1,9 @@
-
 import './App.css'
 
 function App() {
-
 return(
-  <div>
-
+  <div className='App'>
+    <h1> React : </h1>
   </div>
 );
 }

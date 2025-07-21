@@ -754,3 +754,15 @@ fetch(`/api/user/${userId}`)
    "scroll" — when you scroll
    "mousemove" — when mouse moves
    They are always passed as strings to addEventListener.
+
+# useRef is like a box where you can keep a value — and React won't reset or re-render when you change it.
+   synatx : const myRef = useRef(initialValue);
+   Uses : 1>  access a DOM element (like document.getElementById)2> store a value between renders 3> store userid
+
+# 📸 Think of it like this:
+   | `useState`                         | `useRef`                                   |
+| ---------------------------------- | ------------------------------------------ |
+| Triggers re-render on update       | Does **not** trigger re-render             |
+| Used for visible, UI-changing data | Used for invisible, reference-like data    |
+| Stored in React's "state" memory   | Stored in a persistent box between renders |
+
