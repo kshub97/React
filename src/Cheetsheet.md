@@ -595,6 +595,11 @@ With hooks:
 ->They start with the word use: like useState, useEffect, etc.
 ->You only use hooks inside components or custom hooks.
 
+# useState hook -> basic and essential hook in React used to add state to functional components.
+
+const [state, setState] = useState(initialValue);
+state: The current state value. | setState: A function to update the state. | initialValue: The starting value of the state.
+
 ## const [count, setCount] = useState(0);
 
 | Part                                                              | Meaning                                                                       |
@@ -636,15 +641,16 @@ return <button onClick={handleClick}>Clicked {count} times</button>;
 => Each time state or props change, React automatically re-renders (i.e., re-executes) the function component to refresh the UI.
 => declare hooke outside of return statement
 
-#State updates are asynchronous (delayed) is  - React doesn't update the state immediately. It waits, then updates after
-       the function finishes running.
- E.g-   count - state variable which holds value , setCount -state updater function, call this functionto update
-   const [count, setCount] = useState(0);
+#State updates are asynchronous (delayed) is - React doesn't update the state immediately. It waits, then updates after
+the function finishes running.
+E.g- count - state variable which holds value , setCount -state updater function, call this functionto update
+const [count, setCount] = useState(0);
 function increase() {
-  setCount(count + 1);
-  console.log("After update:", count); // Still shows old value!
-   }
-   return (
+setCount(count + 1);
+console.log("After update:", count); // Still shows old value!
+}
+return (
+
    <div>
       <p>{count}</p>       {/* UI shows updated count */}
       <button onClick={increase}>Increase</button>
@@ -663,49 +669,88 @@ function increase() {
    So UI shows updated count, even though the old log is printed
 
 #To resolve this use Update function(a simple function) : when you need the latest state, use it for updating multiple state :
-   e.g -> setCount(prev => prev + 1);
+e.g -> setCount(prev => prev + 1);
 
 # 🧩 What is batching? : React groups multiple state updates together to make the UI faster.
-   Instead of re-rendering on every line: setA(...); | setB(...);
-   It waits till both are done, then re-renders once.
-   This is called batching – updating state in a batch to improve performance.
+
+Instead of re-rendering on every line: setA(...); | setB(...);
+It waits till both are done, then re-renders once.
+This is called batching – updating state in a batch to improve performance.
 
 # setForm({
-  ...formData,
-  [name]: value
+
+...formData,
+[name]: value
 });
 
 #It means:
 Take all the current values from formData (...formData) | Replace (or add) the property with the key of name with the new value | This becomes the new state
 
 # 💡 Thinking Tip:
+
 Whenever you deal with form inputs like:
 <input type="text"> |<input type="color"> | <select>
 
-   use : onChange={(e) => {
-  console.log(e.target.value); // always useful
+use : onChange={(e) => {
+console.log(e.target.value); // always useful
 }}
 
 ---------------------CSS-------------
- #Selectors:
-   /* Target by element */
+#Selectors:
+/_ Target by element _/
 p { }
 
-/* Target by class */
+/_ Target by class _/
 .container { }
 
-/* Target by ID */
+/_ Target by ID _/
 #main-title { }
 
-/* Descendant selector */
+/_ Descendant selector _/
 .container p { }
 
-/* Multiple selectors */
+/_ Multiple selectors _/
 h1, h2, h3 { }
 
-/* Pseudo classes */
+/_ Pseudo classes _/
 a:hover { color: red; }
 li:first-child { font-weight: bold; }
 
-/* Pseudo elements */
+/_ Pseudo elements _/
 p::first-line { font-style: italic; }
+
+#UseEffect Hook - useEffect let run code automatically when somethng chnages or when component load ,
+its like setting updates or when certain data is ready. (Run this code after the component renders — and re-run it if specific data changes).
+
+# useEffect lets you perform side effects in functional components — like:
+
+Fetching data | Updating the DOM | Subscribing to events | Setting up timers
+
+syntax : useEffect(() => {
+// code to run (side effect)
+}, [dependencies]);
+_ Runs once on component load if [] (empty array).
+_ Runs every time dependencies change. \* Runs on every render if you omit the dependency array.
+
+useEffect(() => {console.log("Component loaded");}); //Runs on every render
+
+✅ Run once when component loads:
+useEffect(() => {console.log("Component loaded");}, []); // empty dependency array , run only once
+
+🔁 Run when count changes: useEffect(() => {
+console.log("Count changed:", count);
+}, [count]);  //Runs on initial render as well as when count changes.
+
+🌐 Fetch data when userId changes: useEffect(() => {
+fetch(`/api/user/${userId}`)
+.then(res => res.json())
+.then(data => setUser(data));
+}, [userId]);
+
+
+## 🔥 Common (It is the name of a DOM event )Event Names (used as strings):
+   "click" — when a click happens
+   "keydown" — when a key is pressed
+   "scroll" — when you scroll
+   "mousemove" — when mouse moves
+   They are always passed as strings to addEventListener.
