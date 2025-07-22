@@ -1,8 +1,9 @@
-import './App.css'
+import React from 'react';
+import './CustomHookExample.css';
 import useCounter from './CustomHook/useCounter';
 
 
-function App() { 
+function CustomHook() { 
   const {count, increment, decrement, reset} = useCounter(10);
   
 return(
@@ -18,4 +19,4 @@ return(
   </div>
 );
 }
-export default App;
+export default CustomHook;

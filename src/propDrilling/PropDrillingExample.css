@@ -10,12 +10,3 @@ div{
     justify-content: center;
     align-items: center;
 }
-button{
-    padding: 10px;
-    margin: 10px;
-    border-radius: 5px;
-    border: none;
-    background-color: #4CAF50; /* Green */
-    color: white;
-    cursor: pointer;
-}

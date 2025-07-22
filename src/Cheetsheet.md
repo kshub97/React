@@ -770,3 +770,55 @@ Uses : 1> access a DOM element (like document.getElementById)2> store a value be
 
 🧠 Think of it as:
 A box (ref) where you can put things, check them later, and even update them — and React won’t bother re-rendering unless you say so (via useState).
+
+------------------Prop Drilling , Context API
+
+# This <> </> is called a React Fragment. React components must return a single parent element.
+   So if you try to return multiple sibling elements without a wrapper, error : You'll get an error: “Adjacent JSX elements must be wrapped in an enclosing tag”
+   ✅ Solutions: 1. <div> </div> – a normal HTML wrapper 2. <></> – a React Fragment (cleaner)
+   Use <> </> when you want to group multiple elements in a return statement without adding extra HTML tags.
+   e.g          return (
+                     <>
+                     <h1>Hello</h1>
+                     <p>World</p>
+                     </>
+                     );
+# Props Drilling means passing data (props) from a top-level component all the way down to deeply nested components even if 
+   some intermediate components don’t need that data.
+🧠 Why it’s a problem:
+   Intermediate components (A, B) carry props they don’t use.
+   As the component tree grows, it gets hard to maintain.
+   Changes in the prop often require changing multiple components.
+# 🛠️ Solution: Context API
+Instead of passing props down manually, you can use React.createContext() to provide a value at the top, and consume it wherever needed.
+
+# Context is a way to share data between components without passing props manually at every level.
+   📦 In React terms:
+   createContext() creates the notice board (Context).
+   <Context.Provider value={data}> puts the data on that board.
+   useContext(Context) lets any component read from the board — no need to pass props!
+  # Think of it like: createContext creates the power plug, but <Provider value={...}> plugs it in and provides electricity.
+
+
+# The <Context.Provider> is what actually supplies the value to the components that want to use it via useContext.
+   All components inside (children, grandchildren, etc.) can use:
+
+Without Context : <App theme="dark">
+                  <ComponentA theme="dark">
+                     <ComponentB theme="dark">
+                        <ThemeComponent theme="dark" />
+                     </ComponentB>
+                  </ComponentA>
+                  </App>
+
+✅ With context: <ThemeContext.Provider value="dark">
+                     <App />
+                     </ThemeContext.Provider>
+inside ThemeComponent:    const theme = useContext(ThemeContext);
+
+## 🤔 What is a Custom Hook in React?
+A custom hook is just a JavaScript function whose name starts with use and uses built-in React hooks like useState, useEffect, etc. It's a way to reuse logic across components.
+#✅ Why use Custom Hooks?
+Let’s say multiple components need a counter. Instead of writing the same useState + logic in every component, we extract it into a custom hook.
+
+
