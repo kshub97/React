@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import './App.css'
-import axiosInstance from './API\'s/ApiUtils/CustomAxiosInstance';
+import axiosInstance from './API\'s/CustomAxiosInstance';
 
 function App() {   
    // State to hold posts data
@@ -26,6 +26,8 @@ function App() {
          // Append new post to existing data
         setData( prevdata => [...prevdata, postWithCustomId])
       }
+      // This catch will only be hit IF we did:
+    // return Promise.reject(error);
       ).catch(error => console.error('Post creation failed:', error));   
   }
 return(

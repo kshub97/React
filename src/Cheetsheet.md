@@ -822,3 +822,72 @@ A custom hook is just a JavaScript function whose name starts with use and uses 
 Let’s say multiple components need a counter. Instead of writing the same useState + logic in every component, we extract it into a custom hook.
 
 
+-------------------------------------AXIOS----------------------------------------------------------------------
+
+✅ React .map() in JSX – When to Use () vs {}
+   1. Use {} when you want to write more logic and explicitly return JSX.
+   2. Use () for short, direct returns (like JSX).
+     //Explicit return
+     {data.map((item) => {
+      return <li key={item.id}>{item.title}</li>;
+      })}
+   //Implicit return
+            {data.map((item) => (
+         <li key={item.id}>{item.title}</li>
+         ))}
+
+
+# you can send multiple GET, POST, PUT requests at once using libraries like Axios — exactly like you did with axios.all().All requests are independent — they run in parallel.
+✅ How it works:
+🔹 axios.all([req1, req2, ...])
+Sends multiple requests in parallel (GET/POST/PUT etc.)
+
+🔹 axios.spread((res1, res2) => {...})
+Handles all responses once all requests are complete.
+
+# Interceptor are called first i.e. before then , catch block , can be used for token , authentication etc.
+   $ An interceptor in Axios is a way to intercept requests or responses before they are handled by .then() or .catch().
+   Request part run before data sent to server. Response part run after data is received . $
+ 🧭 Types of Interceptors
+   1. Request Interceptor
+      👉 Used to: Add headers (e.g. Auth token) | Log requests | Modify request config
+   2. Response Interceptor
+      👉 Used to: Handle specific status codes | Log responses | Transform response data globally.
+# Yes, interceptors are written outside your component function, usually at the top level of your file (or in a separate file). 
+   ✅ Why outside the component?
+ *To register interceptors only once when the app loads.
+ *If you put them inside a React component (like App()), they get registered on every render, which causes duplicate requests, memory leaks, or unexpected bugs.
+
+Q.🔍 Why use a custom Axios instance?
+#Using axios.create() gives you a centralized and reusable configuration for all your HTTP calls — like base URL, headers, and interceptors.
+
+
+ # ✅ Benefits (Use Cases)
+   | Use Case              | Why It Helps                                                       --------------------------------------------------------------------------------------------- |
+| ✅ **Base URL**        | You don’t need to write full URL every time: <br>`axiosInstance.get('/posts')` instead of `axios.get('https://jsonplaceholder.typicode.com/posts')` |
+| ✅ **Default Headers** | Automatically attach headers like `Content-Type`, `Auth Token`, or custom headers to every request.                                                 |
+| ✅ **Interceptors**    | Add pre-processing (like adding auth token) or post-processing (like logging or handling errors) globally.                                          |
+| ✅ **Token Auth**      | Automatically attach a JWT or cookie to all requests. No need to pass it manually in each API call.                                                 |
+| ✅ **Error Handling**  | Catch and handle errors (e.g., 401 Unauthorized) globally in one place.                                                                             |
+| ✅ **Modularity**      | Keeps your API logic clean and separate from UI code. Great for large apps.                                                                         |
+
+🔁 Flow using Interceptor + axiosInstance
+1.Login happens → token is received from backend.
+   localStorage.setItem('token', response.data.token);
+2. You create a custom axiosInstance that:
+   Has base URL set.
+   Has a request interceptor that:
+   Gets token from localStorage (or anywhere).
+   Attaches it to the request headers.
+   code :   axiosInstance.interceptors.request.use((config) => {
+      const token = localStorage.getItem('token');
+      if (token) {
+         config.headers['Authorization'] = `Bearer ${token}`;
+      }
+      return config;
+      });
+3. Now whenever you use axiosInstance, you don’t need to manually add the token:
+      axiosInstance.get('/posts'); // token automatically included in headers
+# If you don’t return Promise.reject(error), the .catch() won’t be triggered properly — it breaks error handling downstream.
+# (Promise.reject(error); ) It forwards the error to the place where the original .catch() is written.
+

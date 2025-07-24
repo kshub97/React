@@ -1,6 +1,18 @@
 import { useState } from 'react';
 import './App.css'
-import axiosInstance from './API\'s/ApiUtils/CustomAxiosInstance';
+import axios from 'axios';
+
+//Request Interceptor
+axios.interceptors.request.use((request) => {
+    console.log("Starting Request... " ,request);
+    return request;
+})
+
+//Response Interceptor
+axios.interceptors.response.use((response) => {
+    console.log("Response... " ,response);
+    return response;
+})
 
 function App() {   
    // State to hold posts data
@@ -14,7 +26,7 @@ function App() {
       body : 'Hey There This is Post Api',
       userId : 1
     }
-    axiosInstance.post('https://jsonplaceholder.typicode.com/posts', newPost)
+    axios.post('https://jsonplaceholder.typicode.com/posts', newPost)
       .then(response => {
            // Create a unique ID yourself
          const postWithCustomId = {

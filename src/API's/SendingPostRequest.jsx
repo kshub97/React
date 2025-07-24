@@ -1,11 +1,12 @@
 import { useState } from 'react';
 import './App.css'
-import axiosInstance from './API\'s/ApiUtils/CustomAxiosInstance';
+import axios from 'axios';
+
 
 function App() {   
    // State to hold posts data
   const[data, setData] = useState([]);
-
+  
    // Handle form submission to send POST request
   const handleSubmit = (event) => {
     event.preventDefault()  // This stops the page from reloading
@@ -14,7 +15,7 @@ function App() {
       body : 'Hey There This is Post Api',
       userId : 1
     }
-    axiosInstance.post('https://jsonplaceholder.typicode.com/posts', newPost)
+    axios.post('https://jsonplaceholder.typicode.com/posts', newPost)
       .then(response => {
            // Create a unique ID yourself
          const postWithCustomId = {
