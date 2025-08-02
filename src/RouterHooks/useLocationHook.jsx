@@ -3,7 +3,7 @@ import './App.css'
 import { BrowserRouter as Router, Routes,Route, Link }  from 'react-router-dom';
 import Home from './Routing/Home';
 import Contact from './Routing/Contact';
-import About from './RouterHooks/UseSearchParam/About';
+import About from './Routing/About';
 import Team from './Routing/Team';
 import NotFound from './Routing/NotFound';
 import CurrentLocation from './RouterHooks/CurrentLocation';

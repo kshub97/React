@@ -3,11 +3,9 @@ import './App.css'
 import { BrowserRouter as Router, Routes,Route, Link }  from 'react-router-dom';
 import Home from './Routing/Home';
 import Contact from './Routing/Contact';
-import About from './RouterHooks/UseSearchParam/About';
+import About from './Routing/About';
 import Team from './Routing/Team';
 import NotFound from './Routing/NotFound';
-import CurrentLocation from './RouterHooks/CurrentLocation';
-import Dashboard from './RouterHooks/NavigationHook/Dashboard';
 
 function App() {
 
@@ -25,8 +23,6 @@ function App() {
             <Link to='/contact'>Contact</Link></li>        
         </ul>
       </nav>
-      {/* Calling useLocationHook component */}
-      <CurrentLocation/>  
       <div className='contain mx-auto py-8'>
     <Routes>
       <Route path='/' element={<Home/>}/>
@@ -34,7 +30,6 @@ function App() {
       <Route path='/about' element={<About/>}>
         <Route path='team' element={<Team/>}></Route>
       </Route>
-      <Route path='/dashboard' element={<Dashboard/>}/>
       <Route path='*' element={<NotFound/>}/>
     </Routes>
     </div>
