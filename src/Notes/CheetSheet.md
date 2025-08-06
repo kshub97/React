@@ -105,3 +105,22 @@ Each shop has to pass messages (props) to another shop via hallways.
 
 # 👉 If state is undefined (first time Redux calls it), use initialState.
 👉 On next calls, use the current state.
+
+# The Redux Toolkit package is intended to be the standard way to write Redux logic. It was originally created to help address three common concerns about Redux:
+
+    "Configuring a Redux store is too complicated"
+    "I have to add a lot of packages to get Redux to do anything useful"
+    "Redux requires too much boilerplate code"
+# configureStore is a function from Redux Toolkit used to create your Redux store.It expects an object with at least one key: reducer.
+
+# 👇 Redux needs a "starting value" — this is called initialState.
+    🔹 A) Initial State in the Reducer (Default for new users)
+    This is your "default starting point" when no data is passed.📌 Redux will use this when the app starts for the first time.
+
+    🔹 B) Initial State in the Store (For returning users)
+    Sometimes, we don't want to start from 0.
+    Example: User visited before and their count was saved in localStorage.We can pass that old data to Redux store.
+
+# 🔁 So who wins?
+    If preloadedState is given in store.js, it is used.
+    If not, Redux falls back to the reducer's initialState.

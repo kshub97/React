@@ -7,13 +7,13 @@ import { decrement, increment } from "./store/actions/action";
 
     
 const Counter = () =>{
-    const count = useSelector((state => state.count))
+    const count = useSelector((state => state.counter.count)) //using redux react toolkit
     const dispatch = useDispatch();
     return (
-        <div className="bg-slate-500">
+        <div className="bg-red-100 m-5 p-5 justify-center">
             <h2>Count in Counter Component : {count}</h2>
-            <button className="bg-amber-950 text-ellipsis hover:bg-yellow-500 m-2 p-3" onClick={()=>dispatch(increment())}>Increment</button>
-            <button className="bg-amber-950 text-ellipsis hover:bg-emerald-500 m-2 p-3" onClick={()=>dispatch(decrement())}>Decrement</button>
+            <button className="bg-orange-50  hover:bg-emerald-500 m-2 p-3" onClick={()=>dispatch(increment())}>Increment</button>
+            <button className="bg-orange-50  hover:bg-emerald-500 m-2 p-3" onClick={()=>dispatch(decrement())}>Decrement</button>
         </div>
     );
 };
