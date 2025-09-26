@@ -820,5 +820,7 @@ inside ThemeComponent:    const theme = useContext(ThemeContext);
 A custom hook is just a JavaScript function whose name starts with use and uses built-in React hooks like useState, useEffect, etc. It's a way to reuse logic across components.
 #✅ Why use Custom Hooks?
 Let’s say multiple components need a counter. Instead of writing the same useState + logic in every component, we extract it into a custom hook.
-
+return (count, incr, decr, reset) ❌ does NOT return all fields — it only returns the last one.
+return { count, incr, decr, reset } ✅ use {} + object destructuring so whereever using this hook need like const { } =useNameOfhook
+return [count, incr, decr, reset] ✅ use [] + array destructuring so whereever using this hook need like const [ ] =useNameOfhook
 
